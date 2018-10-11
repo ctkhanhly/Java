@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Question18{
+	
+	public static void main(String[] args){
+	Scanner kb = new Scanner(System.in);
+	
+	System.out.println("Enter the xn: ");
+	int n = kb.nextInt();
+	kb.close();
+	double x=1;
+	int m =1;
+	for (int k=0; k<=n-1; k++){
+		if(k==0)
+			x=1;
+		else
+		x= 1 + 1/x;	
+	
+	int a = (int)x;
+	for(m =1; a!=x; m++ ){
+		x*=m;
+		a*=m;
+		if (a!=x){
+		x/=m;
+		a/=m;
+		}
+		//m max =50
+	}
+	}
+		System.out.println(x+"/"+ (m-1));
+	}
+	
+}
+//2h: 25 MC - 1h, 3- FR

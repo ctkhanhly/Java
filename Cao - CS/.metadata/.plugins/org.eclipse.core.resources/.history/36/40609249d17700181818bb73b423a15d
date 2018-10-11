@@ -1,0 +1,97 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.JFrame;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class Alarm extends JFrame implements ActionListener{
+
+	private Calendar calendar;
+	private int hour;
+	private int minute;
+	private int day;
+	
+	private EasySound Moo;
+	
+	private JSpinner dayValue;
+	private JSpinner hourValue;
+	private JSpinner minuteValue;
+
+	private final String[] weekDays = {"Mon", "Tues", "Wed", "Thurs", "Fri"};
+	ArrayList<String> weekDaysAL = new ArrayList<String>(Arrays.asList(weekDays));
+
+	
+	
+	public Alarm(){
+		this.setSize(400,400);
+		
+		this.setLocationRelativeTo(null);
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		this.setTitle("Wake up with me!");
+		
+		this.setBackground(Color.GREEN);
+		
+		hourValue = new JSpinner(new SpinnerNumberModel(0,0,23,1));
+		minuteValue = new JSpinner(new SpinnerNumberModel(0,0,59,1));
+		
+		
+		dayValue = new JSpinner(new SpinnerListModel(weekDays));
+		
+		ListenForSpinner lForSpinner = new ListenForSpinner();
+		dayValue.addChangeListener(lForSpinner);
+		hourValue.addChangeListener(lForSpinner);
+		minuteValue.addChangeListener(lForSpinner);
+		
+//		JSpinner date = new JSpinner();
+//		JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(date, "dd/MM/yy");// spinner, how I want to display
+//		date.setEditor(dateEditor);
+		this.add(dayValue);
+		this.add(hourValue);
+		this.add(minuteValue);
+		this.setVisible(true);
+		
+		Moo = new EasySound("Moo.wav");
+	}
+	private class ListenForSpinner implements ChangeListener{
+
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(e.getSource() == dayValue){
+				day = weekDaysAL.indexOf(dayValue.getValue()) + 1;
+			}
+			if(e.getSource() == hourValue){
+				hour = (int)hourValue.getValue();
+			}
+			if(e.getSource() == minuteValue){
+				minute = (int) minuteValue.getValue();
+			}
+			
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new Alarm();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(calendar.DAY_OF_WEEK == day && calendar.HOUR == hour && calendar.MINUTE == minute){
+			Moo.play();
+		}
+		
+	}
+
+}

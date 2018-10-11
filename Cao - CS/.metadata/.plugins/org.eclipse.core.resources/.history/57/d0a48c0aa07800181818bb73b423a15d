@@ -1,0 +1,17 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+
+public class HashAttempt {
+
+	public static void main(String[] args) throws NoSuchAlgorithmException {
+		// TODO Auto-generated method stub
+		MessageDigest md = MessageDigest.getInstance("SHA");
+		byte x = 0b1010;
+		md.update(x);
+		md.digest();
+		System.out.println(md);
+		
+	}
+
+}

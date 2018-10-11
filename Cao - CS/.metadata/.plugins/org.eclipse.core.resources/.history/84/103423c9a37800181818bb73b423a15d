@@ -1,0 +1,31 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+
+public class HashAttempt {
+
+	public static void main(String[] args) throws NoSuchAlgorithmException {
+		// TODO Auto-generated method stub
+		MessageDigest md = MessageDigest.getInstance("SHA-256");
+		byte[] x = "Cao Thi Khanh Ly".getBytes();
+		//each letter is translated into a byte, a number, even space has
+		//a byte of 32.
+		
+		byte y = 0b01010010;//1 byte = 8 bit up to 0 first digit b/c it represents
+		//both positive and negative values
+		for(byte b :x){
+			System.out.print(b + " ");
+			};
+		md.update(x);
+		md.digest();
+		//System.out.println(md.digest().toString());
+//char[] c = string.toCharArray();
+//String.valueOf(char[])
+		System.out.println();
+		for(byte b :x){
+			System.out.print(Integer.toHexString((int)b));
+		}
+		
+	}
+
+}

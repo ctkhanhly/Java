@@ -1,0 +1,114 @@
+package Game;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImage;
+import java.awt.image.*;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+import java.awt.event.KeyListener;
+
+public class GamePanel extends JPanel implements Runnable, KeyListener {
+	
+	public static final int WIDTH = 400;
+	public static final int HEIGHT = 400;
+	
+	//Game Loop
+	private Thread thread;
+	private boolean running;//running or not 
+	private long targetTime;
+	
+	//Render
+	private Graphics2D g2d;
+	private BufferedImage image;
+	
+	private void requestRender(){
+		render(g2d);
+		Graphics g = getGraphics();
+		g.drawImage(image,0,0,null);
+		g.dispose();
+	}
+	
+	private void render(Graphics2D g2d){
+		g2d.clearRect(0, 0, WIDTH, HEIGHT);
+	}
+	
+	
+	public GamePanel(){
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		setFocusable(true);
+		requestFocus();
+		addKeyListener(this);
+	}
+	
+	private void setFPS(int fps){
+		targetTime = 1000/fps;
+	}
+	
+	public void addNotify(){
+		super.addNotify();//Runnable
+		thread = new Thread(this);
+		thread.start();
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		if(running) return;
+		init();//run : initialize
+		long startTime;
+		long elapsed;
+		long wait;
+		while(running){
+			startTime = System.nanoTime();
+			
+			update();
+			render();
+			
+			elapsed = System.nanoTime();
+			wait = targetTime - elapsed / 100000;//not gonna go any faster than this
+			if(wait > 0){
+				try{
+					thread.sleep(wait);
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	private void init(){
+		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
+		g2d = image.createGraphics();
+		running = true;
+		setFPS(10);
+	}
+	
+	private void update(){
+		
+	}
+	
+	private void render(){
+		g2d.clearRect(0, 0, WIDTH, HEIGHT);
+	}
+}

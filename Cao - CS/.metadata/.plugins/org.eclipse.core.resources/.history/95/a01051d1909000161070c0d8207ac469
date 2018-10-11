@@ -1,0 +1,19 @@
+
+public class Playground 
+{
+	public static void main(String[] args)
+	{
+		//escape characters \n \r \t \f \' \" \\
+		System.out.println("Sharks \twith \r\"lasers\" on their heads"); //\  \ -> treat the inside as a string, not in quote
+		System.out.println("Sharks\' with \n\"laser\" \non their heads");
+		
+		//Arithmetic * / %: operators
+		//           + / -
+		
+		System.out.println(2+3);
+		System.out.println(2-3);
+		System.out.println(2*3);
+		System.out.println(6/3);
+		System.out.println(6%5); //6 mod 3
+	}
+}

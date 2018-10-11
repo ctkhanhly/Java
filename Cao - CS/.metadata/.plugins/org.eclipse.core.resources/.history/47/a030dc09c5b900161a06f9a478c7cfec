@@ -1,0 +1,18 @@
+public class Question19{
+	public static void main(String[] args){
+		int row;
+		int columm;
+		for(row=0; row<=12; row++){
+			if (row==0)
+				System.out.print(" \t");
+			else{
+			for(columm=0; columm<=12; columm++){
+				if(columm==0)
+					System.out.print(columm + "\t");
+				else
+				System.out.print(columm*row +"\t");
+			}
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+public class Question22
+{
+
+	public static void main(String[] args)
+  {
+		int sum=0;
+		int total=0;
+		boolean previousIs7= false;
+		boolean previousIs9 = false;
+		for(int k=1; k<1000000; k++){
+			for(int m=k; m>0 && !((previousIs7 && sum==9)||(previousIs9 && sum==7)); m/=10){
+				sum=m%10;
+				if(previousIs7 && sum==9)
+					total++;
+				else if(sum==9)
+					previousIs9=true;
+				else if(previousIs9 && sum==7)
+					total++;
+				else if (sum==7)
+					previousIs7=true;
+			}
+		}
+		System.out.println(total);
+  }
+	
+}

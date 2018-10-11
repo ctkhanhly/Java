@@ -1,0 +1,98 @@
+public class Question14
+{
+	//twin primes
+	public static boolean isPrime(int n)
+	{
+		 if (n <= 1)
+		      return false;
+
+		    int m = 2;
+		    if (n==2)
+		    	return true;
+		    else if (n%2==0)
+		    	return false;
+		    while (m * m <= n)
+		    {
+		 if (m%2==0)
+			 m++;
+		 else if (n % m == 0)
+		        return false;
+		 else
+		        	m++;
+		    }
+
+		    return true;
+	}
+	public static void main(String[] args)
+	{
+//		int p= 1;
+//	for(int n = 3;p<=20;n+=2){
+//	if (isPrime(n)==true && isPrime(n+2)==true)
+//		{
+//		if (p==1)
+//		{
+//		System.out.println("Twin Primes are:");
+//		System.out.println(n + " and "+ (n+2));
+//		}
+//		else
+//		System.out.println(n + " and "+ (n+2));
+//		p++;
+//		n+=2;
+//		}
+//	}
+//	}
+//}
+
+//	int n=3;
+//		boolean prevIsPrime = false;
+//
+//	int count = 0;
+//	while (count <20)
+//	{
+//	if(isPrime(n))
+//	{
+//		if(prevIsPrime)// dont need to prevIsPrime==true b/c it already either true or false, it's boolean
+//		{
+//			System.out.println(n-2 + ","+n);
+//			count++;
+// 			preIsPrime=false;		
+//		}
+//		else
+//			prevIsPrime = true;
+//	}
+//	else
+//		prevIsPrime = false;
+//	n+=2;
+//	}
+//	}
+	
+	
+int p=1;
+int k=0;
+int point=0;
+	for (int n=3; p<=20; n+=2 )
+	{
+		if (isPrime(n))
+		{
+			k++;//sth about my k is wrong 
+			if (k%2==0 && (point+2)==n)
+			{ 
+				p++;
+				if (p==2){
+					System.out.println("Twin Primes are:");
+					System.out.println(point + " and "+ n);
+					}
+				else if (p>2){
+					System.out.println(point + " and "+ n);
+					n+=2;
+					}
+			}
+			else if (k%2==0)
+				k=k-1;
+			
+			point = n;//always set to be equal to only true if it's object, not true for numbers.
+		}
+	
+	}
+}
+}

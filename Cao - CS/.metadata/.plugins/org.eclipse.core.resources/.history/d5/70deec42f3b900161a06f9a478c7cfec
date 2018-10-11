@@ -1,0 +1,23 @@
+
+public class Question20 {
+	
+	public static void printStarTriangle(int n)
+	{
+		for(int line =n; line>=1;line--){
+			for (int newLine=1; newLine<=line-1; newLine++){
+				System.out.print("\n");
+			for(int space=0; space<n-line; space++){
+				System.out.print(" ");
+			}
+			for(int star=2*line-1; star>=1; star--){
+				System.out.print("*");
+			}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		printStarTriangle(5);
+	}
+
+}

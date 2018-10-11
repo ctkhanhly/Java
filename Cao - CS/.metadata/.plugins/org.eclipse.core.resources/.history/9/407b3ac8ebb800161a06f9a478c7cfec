@@ -1,0 +1,13 @@
+//wrong
+public class Question17{
+	public static double goldenRatio(int n){
+		double x=1;
+		for (int k=1; (k+1)<=n; k++){
+			x+= 1 + 1/k;
+		}
+		return x;
+	}
+	public static void main(String[] args){
+		System.out.println(goldenRatio(10) + " and golden ratio is (1+5^1/2)/2= 1.61703398875");
+	}
+}

@@ -1,0 +1,22 @@
+public class Question22
+{
+
+	public static void main(String[] args)
+  {
+		int sum=0;
+		int total=0;
+		int test9or7=0;
+		for(int k=1; k<1000000; k++){
+			for(int m=k; m>0 && test9or7!=16; m/=10){
+				sum=m%10;
+				if (sum==7||sum==9)
+					test9or7+=sum;	
+			}
+			if (test9or7==16)
+				total++;
+			sum=0;
+		}
+		System.out.println(total);
+  }
+	
+}

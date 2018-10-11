@@ -1,0 +1,12 @@
+
+public class TestCar 
+{
+	public static void main(String[] args)
+	{
+		Car LyCar = new Car("Toyota", 100, true);
+		LyCar.setSpeed(120);
+		LyCar.isRunning();
+		LyCar.setSpeed(0);
+		LyCar.isRunning();
+	}
+}

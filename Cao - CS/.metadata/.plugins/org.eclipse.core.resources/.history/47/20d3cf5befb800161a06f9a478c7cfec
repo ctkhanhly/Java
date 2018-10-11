@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Question18{
+	public static toString goldenRatio(int n){
+		double x=1;
+		for (int k=1; (k+1)<=n; k++){
+			x+= ((k+1 + "/" + k)
+		}
+		return x;
+	}
+	public static void main(String[] args){
+	Scanner kb = new Scanner(System.in);
+	
+	System.out.println("Enter the xn: ");
+	int n = kb.nextInt();
+	
+	for(int k =1; (k+1)<=n; k++){
+		System.out.println(k+1);
+	}
+	}
+}
+//2h: 25 MC - 1h, 3- FR

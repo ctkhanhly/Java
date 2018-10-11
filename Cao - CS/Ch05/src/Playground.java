@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+public class Playground 
+{
+	public static void main(String[] args)
+	{
+		//escape characters \n \r \t \f \' \" \\
+		System.out.println("Sharks \twith \r\"lasers\" on their heads"); //\  \ -> treat the inside as a string, not in quote
+		System.out.println("Sharks\' with \n\"laser\" \non their heads");
+		
+		//Arithmetic * / %: operators
+		//           + / -
+		//multiplication- division- mod - add- subtract, left to right
+		System.out.println(2+3);
+		System.out.println(2-3);
+		System.out.println(2*3);
+		System.out.println(6/3);
+		System.out.println(6%5); //6 mod 3 (remainder)
+		//System.out.println(10/6) - print: 1
+		//System.out.println(10%6) - print: 4
+		//System.out.println(6%10*3+4) - print: 22 = System.out.println(4+6%10*3)
+		//Sytem.out.println(6*10%3+4 - print: 4
+		System.out.println((5-3)/2);// 1
+		System.out.println(3+12-12);//3
+		System.out.println(7*2);//14
+		System.out.println(10*10/4); //25
+		System.out.println(13%7);//6
+		System.out.println(3*2*6+1); //37
+		System.out.println(12%10*25/1-2);//48
+		System.out.println(120/2-2-(-1));//59
+		System.out.println(3<5); //true boolean a=3<5
+		System.out.println(10%6>5); //false
+		System.out.println(2*3==5+1); //==: are they equal? true-> compare, not assigning; 
+		//=: assigning a value
+		
+		//command slash: comment out the whole thing.
+		//Minutes after hour
+		//Enter minutes:
+		//OK, that's ____:____
+		//System.out.println(97%60);//37
+		Scanner haha = new Scanner(System.in);
+		
+		System.out.println("Enter minutes: " );
+		int minutes = haha.nextInt();
+		
+		System.out.println("OK, that's " + minutes/60 + ":" + minutes%60);
+		haha.close();
+		
+		System.out.println("Enter a number: ");
+		int n = haha.nextInt();
+		System.out.println("The last digit of" + n + "is" + n%10);
+		if (n%2==0)
+		System.out.println("EVEN!");
+		else
+		System.out.println("ODD!");
+		
+		//Casting  pg. 110-112
+		int a = 7, b = 2;
+		System.out.println(a/b);//3
+		// print(a/b)
+		
+		double decimal = a /b;
+		System.out.println(decimal);// 3.0 b/c does a/b 1st then do the double
+		
+		double ratio = (double)a / (double)b; //change double to string wont work b/c cannot divide string by string
+		System.out.println(ratio);
+		//(datatype)variable-> casting
+		
+		//Promotion
+		//double ratio = (double)a / b;
+		//System.out.println(ratio);
+		int degreesFahrenheit = 100;
+		double degreesCelcius = (double)5 / 9 * (degreesFahrenheit);
+		//or: double degreesCelcius = 5.0 / 9 * (degreesFahrenheit);
+		//or: double degreesCelcius = 5 / 9.0 * (degreesFahrenheit);
+		//int degreesCelcius = 5 / 9 * (degreesFahrenheit); - print: 0 b/c 5/9=0
+		//int degreesCelcius = 5.0 / 9 * (degreesFahrenheit); - error b/c double cannot be in int
+		System.out.println(degreesCelcius);
+		
+		//Compound Assignment & Increment
+		int x =7;
+		x+=3; //x = x+3; 
+		System.out.println(x);
+		x-=3; // x = x-3;
+		System.out.println(x);
+		x*=3; // x= x*3;
+		System.out.println(x);
+		x/=3; // x = x/3;
+		System.out.println(x);
+		x%=3; // x = x%3;
+		System.out.println(x);
+		x++;//x = x+1; print x then x+1
+		System.out.println(x);
+		x--; //x = x-1;
+		System.out.println(x);
+		++x;// same x++, print x+1
+		--x;// 1-x
+		
+		//int i = 10;
+		//System.out.println(i);//10
+		//System.out.println(++i);//11
+		//System.out.println(i);//11
+		//System.out.println(i++);//11
+		//System.out.println(i);//12
+		
+				
+	}
+}

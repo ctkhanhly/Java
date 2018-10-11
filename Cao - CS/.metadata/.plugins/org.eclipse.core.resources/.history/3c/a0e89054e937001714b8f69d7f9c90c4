@@ -1,0 +1,11 @@
+package Game;
+
+public class Entity {
+	private int size;
+	private int x;
+	private int y;
+	
+	public Entity(){
+		
+	}
+}

@@ -1,0 +1,187 @@
+import java.util.ArrayList;
+//1.1 for notches
+//
+// e.getClickCount()- mod 26, mod 26*26
+public class Rotors {
+	private final String roll1_1s =  "abcdefghijklmnopqrstuvwxyz";
+	private final String roll1_2s =  "kehcmynaowzvldptguxjqfirbs";
+	private ArrayList<Character> roll1_1;
+	private ArrayList<Character> roll1_2;
+	
+	private final String roll2_1s = "abcdefghijklmnopqrstuvwxyz";
+	private final String roll2_2s = "vhdsaqwkmxizpurelbcnyojtfg";
+	private ArrayList<Character> roll2_1;
+	private ArrayList<Character> roll2_2;
+	
+	private final String roll3_1s = "abcdefghijklmnopqrstuvwxyz";
+	private final String roll3_2s = "yusmdnqlkwocxparjthebizfgv";
+	private ArrayList<Character> roll3_1;
+	private ArrayList<Character> roll3_2;
+	
+	private final String roll4_1s = "abcdefghijklmnopqrstuvwxyz";
+	private final String roll4_2s = "qkjafduvwxehbnczmgytprolsi";
+	private ArrayList<Character> roll4_1;
+	private ArrayList<Character> roll4_2;
+	
+	private final String roll5_1s = "abcdefghijklmnopqrstuvwxyz";
+	private final String roll5_2s = "yrjdnsqhwfbzkaieoxtmpucvgl";
+	private ArrayList<Character> roll5_1;
+	private ArrayList<Character> roll5_2;
+	
+
+	public ArrayList<Character> getRoll1_1() {
+		return roll1_1;
+	}
+
+	public void setRoll1_1(ArrayList<Character> roll1_1) {
+		this.roll1_1 = roll1_1;
+	}
+
+	public ArrayList<Character> getRoll1_2() {
+		return roll1_2;
+	}
+
+	public void setRoll1_2(ArrayList<Character> roll1_2) {
+		this.roll1_2 = roll1_2;
+	}
+
+	public ArrayList<Character> getRoll2_1() {
+		return roll2_1;
+	}
+
+	public void setRoll2_1(ArrayList<Character> roll2_1) {
+		this.roll2_1 = roll2_1;
+	}
+
+	public ArrayList<Character> getRoll2_2() {
+		return roll2_2;
+	}
+
+	public void setRoll2_2(ArrayList<Character> roll2_2) {
+		this.roll2_2 = roll2_2;
+	}
+
+	public ArrayList<Character> getRoll3_1() {
+		return roll3_1;
+	}
+
+	public void setRoll3_1(ArrayList<Character> roll3_1) {
+		this.roll3_1 = roll3_1;
+	}
+
+	public ArrayList<Character> getRoll3_2() {
+		return roll3_2;
+	}
+
+	public void setRoll3_2(ArrayList<Character> roll3_2) {
+		this.roll3_2 = roll3_2;
+	}
+
+	public ArrayList<Character> getRoll4_1() {
+		return roll4_1;
+	}
+
+	public void setRoll4_1(ArrayList<Character> roll4_1) {
+		this.roll4_1 = roll4_1;
+	}
+
+	public ArrayList<Character> getRoll4_2() {
+		return roll4_2;
+	}
+
+	public void setRoll4_2(ArrayList<Character> roll4_2) {
+		this.roll4_2 = roll4_2;
+	}
+
+	public ArrayList<Character> getRoll5_1() {
+		return roll5_1;
+	}
+
+	public void setRoll5_1(ArrayList<Character> roll5_1) {
+		this.roll5_1 = roll5_1;
+	}
+
+	public ArrayList<Character> getRoll5_2() {
+		return roll5_2;
+	}
+
+	public void setRoll5_2(ArrayList<Character> roll5_2) {
+		this.roll5_2 = roll5_2;
+	}
+
+	public Rotors(){
+		roll1_1 = new ArrayList<Character>();
+		roll1_2 = new ArrayList<Character>();
+		roll2_1 = new ArrayList<Character>();
+		roll2_2 = new ArrayList<Character>();
+		roll3_1 = new ArrayList<Character>();
+		roll3_2 = new ArrayList<Character>();
+		roll4_1 = new ArrayList<Character>();
+		roll4_2 = new ArrayList<Character>();
+		roll5_1 = new ArrayList<Character>();
+		roll5_2 = new ArrayList<Character>();
+		
+		for(int i = 0; i< 26; i++){
+			roll1_1.add(roll1_1s.charAt(i));
+			roll1_2.add(roll1_2s.charAt(i));
+			roll2_1.add(roll2_1s.charAt(i));
+			roll2_2.add(roll2_2s.charAt(i));
+			roll3_1.add(roll3_1s.charAt(i));
+			roll3_2.add(roll3_2s.charAt(i));
+			roll4_1.add(roll4_1s.charAt(i));
+			roll4_2.add(roll4_2s.charAt(i));
+			roll5_1.add(roll5_1s.charAt(i));
+			roll5_2.add(roll5_2s.charAt(i));
+		}
+	}
+	 
+	//roll 2 only
+	public ArrayList<Character> advance(ArrayList<Character> roll){
+		char first = roll.get(0);
+		for(int i = 0; i<25; i++){
+			roll.set(i, roll.get(i+1));
+		}
+		roll.set(25, first);
+		return roll;
+	}
+	//arraylist => don't have to if each time.
+	//roll 2 only for notch
+	
+	//action key input
+		//roll 1 only for ring
+		
+	public ArrayList<Character> Init(char letter, ArrayList<Character> roll){
+		int index = roll.indexOf(letter);
+		for(int i = 0; i< index; i++){
+			roll.add(roll.get(0));
+			roll.remove(0);
+		}
+		return roll;
+	}
+	
+	  public static void main(String[] args){
+		  Rotors rotor1 = new Rotors();
+//		 ArrayList<Character> roll1_1 = new ArrayList<Character>();
+//			for(int i = 0; i< 26; i++){
+//				roll1_1.add(rotor1.getRoll1_1().get(i));
+//			}
+//		  for(int i = 0; i<26;i++){
+//		  System.out.print(roll1_1.get(i) + " ");
+//		  }
+//		  System.out.println();
+//		  
+//		  System.out.println(rotor1.Init('b',rotor1.getRoll1_1()));
+//		  
+//		  for(int i = 0; i<26;i++){
+//			  System.out.print(roll1_1.get(i) + " ");
+//			  }
+		  System.out.println("Original rotor1: " +rotor1.getRoll1_1());
+		  //***************
+		  rotor1.setRoll1_1(rotor1.advance(rotor1.getRoll1_1()));
+		  System.out.println("Changed rotor1: " +rotor1.getRoll1_1());
+		  System.out.println(rotor1.Init('j', rotor1.getRoll1_2()));
+		//arraylist has toString method to print out all its contents.
+		  
+	  }
+
+}

@@ -1,0 +1,63 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.JFrame;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class Alarm extends JFrame{
+	private Date date;
+	private Time time;
+	private Calendar calendar;
+	private int hour;
+	private int minute;
+	private int day;
+	private final String[] weekDays = {"Mon", "Tues", "Wed", "Thurs", "Fri"};
+	
+	
+	public Alarm(){
+		this.setSize(400,400);
+		
+		this.setLocationRelativeTo(null);
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		this.setTitle("Wake up with me!");
+		
+		this.setBackground(Color.GREEN);
+		
+		JSpinner hourValue = new JSpinner(new SpinnerNumberModel(0,0,23,1));
+		JSpinner minuteValue = new JSpinner(new SpinnerNumberModel(0,0,59,1));
+		
+		
+		JSpinner dayValue = new JSpinner(new SpinnerListModel(weekDays));
+		
+		ListenForSpinner lForSpinner = new ListenForSpinner();
+		dayValue.addChangeListener(lForSpinner);
+		hourValue.addChangeListener(lForSpinner);
+		minuteValue.addChangeListener(lForSpinner);
+		
+//		JSpinner date = new JSpinner();
+//		JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(date, "dd/MM/yy");// spinner, how I want to display
+//		date.setEditor(dateEditor);
+	}
+	private class ListenForSpinner implements ChangeListener{
+
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(e.getSource() == dayValue){
+				
+			}
+			
+		}
+		
+	}
+
+}

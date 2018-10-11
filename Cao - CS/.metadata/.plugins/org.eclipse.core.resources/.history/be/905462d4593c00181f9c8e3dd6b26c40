@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+
+public class Reflector {
+	//private final String reflector1 = "am kv gf sd zh wb ru jq ix oy nl pt ce";
+	//pair odd and even indexes
+	private final String reflector1 = "mwescgfzxqvnalytjudprkbioh";
+	private final ArrayList<Character> reflector11;
+	
+	public Reflector(){
+		reflector11 = new ArrayList<Character>();
+		for(int i = 0; i<26; i++){
+			reflector11.add(reflector1.charAt(i));
+		}
+	}
+	public ArrayList<Character> getReflector11(){
+		return reflector11;
+	}
+	public char approach(char c){
+		int index = reflector11.indexOf(c);
+		if(index%2 == 0){
+			return reflector11.get(index+1);
+		}
+		else{
+			return reflector11.get(index-1);
+		}
+	}
+	//test
+	public static void main(String[] args){
+		Reflector r = new Reflector();
+		System.out.println(r.getReflector11().get(0));
+		System.out.println(r.approach('a'));
+		System.out.println(r.approach('j'));
+	}
+}

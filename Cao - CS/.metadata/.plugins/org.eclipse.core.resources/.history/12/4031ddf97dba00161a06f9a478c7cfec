@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class Question24{
+	public static final double aRipple= 0.26;
+	public static void main(String[] args){
+		Scanner kb = new Scanner(System.in);
+		char answer= 'm';
+		
+		System.out.println("Enter quantity: ");
+		int q1 = kb.nextInt();
+		System.out.println("You have ordered q ripples -- $"+ aRipple*q1 );
+		System.out.println();
+		
+		System.out.println("Next customer(y/n): ");
+		kb.nextLine();
+		System.out.println();
+		
+		System.out.println("Enter quantity: ");
+		int q2 = kb.nextInt();
+		System.out.println("Ripples can be ordered only in packs of 25.");
+		
+		
+		while(!(answer=='y'&& answer=='n')){
+		System.out.println("Next customer(y/n): ");
+		kb.nextLine();
+			
+		String str = kb.nextLine().trim();
+		if (str.length()==1)
+			answer = str.charAt(0);
+		else
+			answer = ' ';
+		}
+		
+		System.out.println("Thank you for using Ripple System.");
+		
+	
+	
+	}
+}
+	
